@@ -24,4 +24,8 @@ interface Node {
   ];
 }
 
+interface PrettierError {
+  codeFrame: string;
+}
+
 declare module "prettier-plugin-svelte";

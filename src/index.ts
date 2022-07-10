@@ -96,9 +96,7 @@ export const highlight: Highlight = (options) => {
             try {
               formatted = format(code, { parser: language, ...prettierOptions });
             } catch (error: unknown) {
-              if (error && typeof error === "object") {
-                log("Formatting error", (error as { codeFrame: string }).codeFrame);
-              }
+              log("Formatting error", (error as PrettierError).codeFrame);
             }
 
             const { value: highlighted } = /svelte|html/.test(language)

@@ -1,41 +1,5 @@
 // Vitest Snapshot v1
 
-exports[`invalid language 1`] = `"<pre data-language=\\"hypescript\\">{'hype'}</pre>"`;
-
-exports[`multiple 1`] = `
-"<pre><code class=\\"hljs\\">{@html \`<span class=\\"hljs-keyword\\">const</span> <span class=\\"hljs-title function_\\">a</span> = (<span class=\\"hljs-params\\">b: <span class=\\"hljs-built_in\\">number</span></span>) =&gt; <span class=\\"hljs-number\\">4</span>;
-\`}</code></pre>
-
-<pre><code class=\\"hljs\\">{@html \`<span class=\\"hljs-keyword\\">const</span> <span class=\\"hljs-title function_\\">a</span> = (<span class=\\"hljs-params\\">b: <span class=\\"hljs-built_in\\">number</span></span>) =&gt; <span class=\\"hljs-number\\">4</span>;
-\`}</code></pre>"
-`;
-
-exports[`svelte - multiline 1`] = `
-"<pre><code class=\\"hljs\\">{@html \`<span class=\\"hljs-tag\\">&lt;<span class=\\"hljs-name\\">script</span>&gt;</span><span class=\\"language-javascript\\">
-  <span class=\\"hljs-keyword\\">import</span> <span class=\\"hljs-title class_\\">Highlight</span> <span class=\\"hljs-keyword\\">from</span> <span class=\\"hljs-string\\">&quot;svelte-highlight&quot;</span>;
-  <span class=\\"hljs-keyword\\">import</span> typescript <span class=\\"hljs-keyword\\">from</span> <span class=\\"hljs-string\\">&quot;svelte-highlight/languages/typescript&quot;</span>;
-  <span class=\\"hljs-keyword\\">import</span> atomOneDark <span class=\\"hljs-keyword\\">from</span> <span class=\\"hljs-string\\">&quot;svelte-highlight/styles/atom-one-dark&quot;</span>;
-
-  <span class=\\"hljs-keyword\\">const</span> code = <span class=\\"hljs-string\\">&quot;const add = (a: number, b: number) =&gt; a + b;&quot;</span>;
-</span><span class=\\"hljs-tag\\">&lt;/<span class=\\"hljs-name\\">script</span>&gt;</span>
-
-<span class=\\"hljs-tag\\">&lt;<span class=\\"hljs-name\\">svelte:head</span>&gt;</span>
-  {@html atomOneDark}
-<span class=\\"hljs-tag\\">&lt;/<span class=\\"hljs-name\\">svelte:head</span>&gt;</span>
-
-<span class=\\"hljs-tag\\">&lt;<span class=\\"hljs-name\\">Highlight</span> <span class=\\"hljs-attr\\">language</span>=<span class=\\"hljs-string\\">{typescript}</span> {<span class=\\"hljs-attr\\">code</span>} /&gt;</span>
-\`}</code></pre>"
-`;
-
-exports[`svelte 1`] = `
-"<pre><code class=\\"hljs\\">{@html \`<span class=\\"hljs-tag\\">&lt;<span class=\\"hljs-name\\">script</span>&gt;</span><span class=\\"language-javascript\\">
-  <span class=\\"hljs-keyword\\">let</span> count = <span class=\\"hljs-number\\">0</span>;
-</span><span class=\\"hljs-tag\\">&lt;/<span class=\\"hljs-name\\">script</span>&gt;</span>
-
-{@html count}
-\`}</code></pre>"
-`;
-
 exports[`svelte-preprocess-highlight > invalid language 1`] = `"<pre data-language=\\"hypescript\\">{'hype'}</pre>"`;
 
 exports[`svelte-preprocess-highlight > multiple 1`] = `
@@ -92,24 +56,3 @@ exports[`svelte-preprocess-highlight > typescript – mustache tag (string) 1`] 
 exports[`svelte-preprocess-highlight > typescript – no code 1`] = `"<pre data-language=\\"typescript\\" />"`;
 
 exports[`svelte-preprocess-highlight > typescript – no language 1`] = `"<pre>{'const a = (b: number) => 4'}</pre>"`;
-
-exports[`typescript – formatting error 1`] = `"<pre><code class=\\"hljs\\">{@html \`<span class=\\"hljs-keyword\\">const</span> a= <span class=\\"hljs-attr\\">b</span>:<span class=\\"hljs-built_in\\">number</span>) =&gt;<span class=\\"hljs-number\\">4</span>\`}</code></pre>"`;
-
-exports[`typescript – mustache tag (quasis with line breaks) 1`] = `
-"<pre><code class=\\"hljs\\">{@html \`<span class=\\"hljs-keyword\\">const</span> <span class=\\"hljs-title function_\\">a</span> = (<span class=\\"hljs-params\\">b: <span class=\\"hljs-built_in\\">number</span></span>) =&gt; <span class=\\"hljs-number\\">4</span>;
-\`}</code></pre>"
-`;
-
-exports[`typescript – mustache tag (quasis) 1`] = `
-"<pre><code class=\\"hljs\\">{@html \`<span class=\\"hljs-keyword\\">const</span> <span class=\\"hljs-title function_\\">a</span> = (<span class=\\"hljs-params\\">b: <span class=\\"hljs-built_in\\">number</span></span>) =&gt; <span class=\\"hljs-number\\">4</span>;
-\`}</code></pre>"
-`;
-
-exports[`typescript – mustache tag (string) 1`] = `
-"<pre><code class=\\"hljs\\">{@html \`<span class=\\"hljs-keyword\\">const</span> <span class=\\"hljs-title function_\\">a</span> = (<span class=\\"hljs-params\\">b: <span class=\\"hljs-built_in\\">number</span></span>) =&gt; <span class=\\"hljs-number\\">4</span>;
-\`}</code></pre>"
-`;
-
-exports[`typescript – no code 1`] = `"<pre data-language=\\"typescript\\" />"`;
-
-exports[`typescript – no language 1`] = `"<pre>{'const a = (b: number) => 4'}</pre>"`;

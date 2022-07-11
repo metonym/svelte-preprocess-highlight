@@ -1,5 +1,7 @@
 // Vitest Snapshot v1
 
+exports[`svelte-preprocess-highlight > auto-highlight 1`] = `"<pre><code class=\\"hljs\\">{@html \`<span class=\\"hljs-selector-tag\\">body</span> { <span class=\\"hljs-attribute\\">color</span>: red; }\`}</code></pre>"`;
+
 exports[`svelte-preprocess-highlight > invalid language 1`] = `"<pre data-language=\\"hypescript\\">{'hype'}</pre>"`;
 
 exports[`svelte-preprocess-highlight > multiple 1`] = `

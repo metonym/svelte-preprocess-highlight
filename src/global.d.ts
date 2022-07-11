@@ -4,7 +4,7 @@ interface Node {
   name: string;
   attributes: Array<{
     name: string;
-    value: [{ raw: string }];
+    value: true | [{ raw: string }];
   }>;
   children: [
     | undefined

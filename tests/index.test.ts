@@ -70,6 +70,10 @@ describe("svelte-preprocess-highlight", () => {
   
   <Highlight language={typescript} {code} />\`}</pre>`;
 
+  const AUTO_HIGHLIGHT = `<pre data-language>{\`body { color: red; }\`}</pre>`;
+
+  const AUTO_HIGHLIGHT_EXPLICIT = `<pre data-language="auto">{\`body { color: red; }\`}</pre>`;
+
   test("filter – no file name", () => {
     expect(p("content", "")).toEqual(undefined);
   });
@@ -147,5 +151,10 @@ describe("svelte-preprocess-highlight", () => {
 
   test("svelte - multiline", () => {
     expect(p(SVELTE_MULTILINE)).toMatchSnapshot();
+  });
+
+  test("auto-highlight", () => {
+    expect(p(AUTO_HIGHLIGHT)).toMatchSnapshot();
+    expect(p(AUTO_HIGHLIGHT)).toEqual(p(AUTO_HIGHLIGHT_EXPLICIT));
   });
 });

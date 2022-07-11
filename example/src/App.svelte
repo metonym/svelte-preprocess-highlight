@@ -59,3 +59,7 @@
   }
   `}
 </pre>
+
+<pre data-language>{`body { color: red; }`}</pre>
+
+<pre data-language="auto">{`body { color: red; }`}</pre>

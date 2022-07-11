@@ -7,7 +7,7 @@ import { format } from "prettier";
 import type { Options } from "prettier";
 import "prettier-plugin-svelte";
 
-const languages = new Set([...hljs.listLanguages(), "svelte", "html"]);
+const languages = new Set([...hljs.listLanguages(), "svelte", "html", "auto"]);
 
 interface HighlightOptions {
   /**
@@ -79,7 +79,13 @@ export const highlight: Highlight = (options) => {
               code = expression.quasis[0]?.value.raw;
             }
 
-            language = attributes.find(({ name }) => name === "data-language")?.value[0].raw;
+            const language_value = attributes.find(({ name }) => name === "data-language")?.value;
+
+            if (language_value === true) {
+              language = "auto";
+            } else {
+              language = language_value?.[0]?.raw;
+            }
 
             /**
              * Assume normal usage of the `<pre>` element
@@ -99,9 +105,20 @@ export const highlight: Highlight = (options) => {
               log("Formatting error", (error as PrettierError).codeFrame);
             }
 
-            const { value: highlighted } = /svelte|html/.test(language)
-              ? hljs.highlightAuto(formatted, ["xml", "css", "javascript"])
-              : hljs.highlight(formatted, { language });
+            let highlighted = formatted;
+
+            if (language === "auto") {
+              const auto_highlighted = hljs.highlightAuto(formatted);
+              
+              highlighted = auto_highlighted.value;
+              language = auto_highlighted.language;
+            } else {
+              if (/svelte|html/.test(language)) {
+                highlighted = hljs.highlightAuto(formatted, ["xml", "css", "javascript"]).value;
+              } else {
+                highlighted = hljs.highlight(formatted, { language }).value;
+              }
+            }
 
             s.overwrite(
               node.start,

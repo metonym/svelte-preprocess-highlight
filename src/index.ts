@@ -109,7 +109,7 @@ export const highlight: Highlight = (options) => {
 
             if (language === "auto") {
               const auto_highlighted = hljs.highlightAuto(formatted);
-              
+
               highlighted = auto_highlighted.value;
               language = auto_highlighted.language;
             } else {

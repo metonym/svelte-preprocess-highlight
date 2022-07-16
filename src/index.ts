@@ -1,10 +1,9 @@
 import path from "path";
 import { parse, walk } from "svelte/compiler";
-import type { PreprocessorGroup } from "svelte/types/compiler/preprocess";
 import MagicString from "magic-string";
 import hljs from "highlight.js";
 import { format } from "prettier";
-import type { Options } from "prettier";
+import type { Options as PrettierOptions } from "prettier";
 import "prettier-plugin-svelte";
 
 const languages = new Set([...hljs.listLanguages(), "svelte", "html", "auto"]);
@@ -30,12 +29,10 @@ interface HighlightOptions {
    *  },
    * })
    */
-  prettierOptions?: Options;
+  prettierOptions?: PrettierOptions;
 }
 
-type Highlight = (options?: HighlightOptions) => Pick<PreprocessorGroup, "markup">;
-
-export const highlight: Highlight = (options) => {
+export const highlight: SveltePreprocessor<"markup", HighlightOptions> = (options) => {
   const ignorePath =
     options?.ignorePath || ((filename) => /(node_modules|.svelte-kit)/.test(filename));
   const prettierOptions = options?.prettierOptions;
@@ -53,7 +50,7 @@ export const highlight: Highlight = (options) => {
       };
 
       walk(parse(content), {
-        enter(node: Node) {
+        enter(node: AstNode) {
           if (node.name === "pre") {
             let code = "";
             let language: undefined | string;

@@ -12,17 +12,17 @@
     "format": "prettier --write ."
   },
   "dependencies": {
-    "highlight.js": "^11.5.1",
+    "highlight.js": "^11.6.0",
     "magic-string": "^0.26.2",
     "prettier": "^2.7.1",
     "prettier-plugin-svelte": "^2.7.0"
   },
   "devDependencies": {
-    "@types/node": "^18.0.3",
+    "@types/node": "^18.0.5",
     "@types/prettier": "^2.6.3",
     "svelte": "^3.49.0",
     "typescript": "^4.7.4",
-    "vitest": "^0.18.0"
+    "vitest": "^0.18.1"
   },
   "prettier": {
     "printWidth": 100

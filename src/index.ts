@@ -128,7 +128,7 @@ export const highlight: SveltePreprocessor<"markup", HighlightOptions> = (option
 
       return {
         code: s.toString(),
-        map: s.generateMap({ file: filename, includeContent: true }),
+        map: s.generateMap({ source: filename, includeContent: true }),
       };
     },
   };

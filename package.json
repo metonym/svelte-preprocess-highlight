@@ -13,15 +13,15 @@
   },
   "dependencies": {
     "highlight.js": "^11.6.0",
-    "magic-string": "^0.26.2",
+    "magic-string": "^0.26.3",
     "prettier": "^2.7.1",
     "prettier-plugin-svelte": "^2.7.0"
   },
   "devDependencies": {
     "@types/prettier": "^2.7.0",
-    "svelte": "^3.49.0",
-    "typescript": "^4.7.4",
-    "vitest": "^0.21.1"
+    "svelte": "^3.50.1",
+    "typescript": "^4.8.3",
+    "vitest": "^0.23.2"
   },
   "prettier": {
     "printWidth": 100

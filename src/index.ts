@@ -1,10 +1,10 @@
-import path from "path";
-import { parse, walk } from "svelte/compiler";
-import MagicString from "magic-string";
 import hljs from "highlight.js";
-import { format } from "prettier";
+import MagicString from "magic-string";
+import path from "path";
 import type { Options as PrettierOptions } from "prettier";
+import { format } from "prettier";
 import "prettier-plugin-svelte";
+import { parse, walk } from "svelte/compiler";
 
 const languages = new Set([...hljs.listLanguages(), "svelte", "html", "auto"]);
 

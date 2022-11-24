@@ -1,5 +1,5 @@
-import { afterEach, describe, expect, test, vi } from "vitest";
 import type { Processed } from "svelte/types/compiler/preprocess";
+import { afterEach, describe, expect, test, vi } from "vitest";
 import * as API from "../src";
 
 describe("svelte-preprocess-highlight", () => {

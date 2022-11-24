@@ -5,6 +5,8 @@ import type { Options as PrettierOptions } from "prettier";
 import { format } from "prettier";
 import "prettier-plugin-svelte";
 import { parse, walk } from "svelte/compiler";
+import type { SveltePreprocessor } from "svelte/types/compiler/preprocess";
+import type { AstNode } from "./types";
 
 const languages = new Set([...hljs.listLanguages(), "svelte", "html", "auto"]);
 
@@ -98,7 +100,7 @@ export const highlight: SveltePreprocessor<"markup", HighlightOptions> = (option
 
             try {
               formatted = format(code, { parser: language, ...prettierOptions });
-            } catch (error: unknown) {
+            } catch (error) {
               log("Formatting error", (error as PrettierError).codeFrame);
             }
 

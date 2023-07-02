@@ -4,9 +4,9 @@ import path from "path";
 import type { Options as PrettierOptions } from "prettier";
 import { format } from "prettier";
 import "prettier-plugin-svelte";
+import type { PrettierError } from "prettier-plugin-svelte";
 import { parse, walk } from "svelte/compiler";
 import type { SveltePreprocessor } from "svelte/types/compiler/preprocess";
-import type { AstNode } from "./types";
 
 const languages = new Set([...hljs.listLanguages(), "svelte", "html", "auto"]);
 
@@ -52,13 +52,13 @@ export const highlight: SveltePreprocessor<"markup", HighlightOptions> = (option
       };
 
       walk(parse(content), {
-        enter(node: AstNode) {
+        enter(node) {
           if (node.name === "pre") {
             let code = "";
             let language: undefined | string;
 
             const { attributes, children } = node;
-            const expression = children.find((child) => child?.type === "MustacheTag")?.expression;
+            const expression = children?.find((child) => child?.type === "MustacheTag")?.expression;
 
             if (expression?.value) {
               /**
@@ -129,6 +129,7 @@ export const highlight: SveltePreprocessor<"markup", HighlightOptions> = (option
       });
 
       return {
+        name: "highlight",
         code: s.toString(),
         map: s.generateMap({ source: filename, includeContent: true }),
       };
